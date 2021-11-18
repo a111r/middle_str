@@ -7,16 +7,16 @@
 using namespace std;
 
 long long itc_len(string str);
-long long itc_str_to_int(string str);
-long long itc_covert_num(long long num, int ss);
-string itc_int_to_str(long long num);
+bool isLetter(char word);
+bool isValidWord(string str);
+string itc_slice_str(string str, int start, int end);
 
 bool itc_isDigit(unsigned char c);
 unsigned char itc_toUpper(unsigned char c);
 unsigned char itc_changeCase(unsigned char c);
 bool itc_compare(string s1, string s2);
 int itc_countWords(string str);
-string itc_maxCharWord(string str);
+int itc_countWords(string str);
 char itc_sameChar(string str);
 bool itc_isFirstInSecond(string s1, string s2);
 string itc_Cezar(string str, int k);
