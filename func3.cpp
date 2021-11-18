@@ -47,14 +47,4 @@ bool itc_compare(string s1, string s2)
     return true;
 }
 
-int itc_countWords(string str)
-{
-	long long l = itc_len(str), kol = 1;
-	for (int i = 0; i < l; i++) {
-		if (str[i] == ' ') {
-			kol++;
-		}
-	}
-	return kol;
-}
 
