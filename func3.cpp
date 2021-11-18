@@ -31,3 +31,22 @@ bool itc_isIp(string str)
         return false;
     return true;
 }
+
+string itc_DecToBin(string str)
+{
+	string a, answer;
+	a = "", answer = "";
+	for (int i = 0; i < itc_len(str); i++){
+		if (itc_isDigit(str[i])) a += str[i];
+		else {
+			answer += convertToBin(a);
+			answer += str[i];
+			a = "";
+		}
+		if (i + 1 == itc_len(str)) {
+			answer += convertToBin(a);
+			a = "";
+		}
+	}
+	return answer;
+}
