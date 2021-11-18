@@ -72,5 +72,5 @@ int itc_countWords(string str)
 			    notSymbol = true;
 		}
 	}
-	return counter
+	return counter;
 }
