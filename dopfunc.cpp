@@ -10,11 +10,6 @@ long long itc_len(string str)
     return i;
 }
 
-bool itc_isLetter(unsigned char c)
-{
-    return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
-}
-
 long long itc_pow(int n, int i)
 {
     if (i == 0)
@@ -31,6 +26,14 @@ int itc_stop(string str)
         answer += (str[i] - 48) * itc_pow(10, st - 1);
         st--;
     }
+    return answer;
+}
+
+string convertToBin(string str)
+{
+    string answer = "";
+    for (int dec = itc_stop(str); dec > 0; dec /= 2)
+        answer = char(dec % 2 + '0') + answer;
     return answer;
 }
 
