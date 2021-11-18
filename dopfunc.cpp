@@ -1,9 +1,12 @@
 #include "middle_str.h"
+
 long long itc_len(string str)
 {
-    long long res = 0;
-    int i = 0;
-    while (str[i] != '\0'){
+    long long res ;
+    int i;
+    res = 0, i = 0;
+    while (str[i] != '\0')
+    {
         i++;
     }
     return i;
@@ -35,13 +38,13 @@ bool isValidWord(string str)
     return true;
 }
 
-string itc_slice_str(string str, int start, int end)
+string itc_slice_str(string str, int start, int end1)
 {
     string result;
     result = "";
-    if ( end >= itc_len(str))
-        end = itc_len(str) - 1;
-    if(start > end)
+    if (end1 >= itc_len(str))
+        end1 = itc_len(str) - 1;
+    if(start > end1)
         return str;
     else if(start == (itc_len(str) - 1))
     {
@@ -50,7 +53,7 @@ string itc_slice_str(string str, int start, int end)
     }
     else
     {
-        for ( long long i = start; i <= end; i++)
+        for (long long i = start; i <= end1; i++)
         {
         result += str[i];
         }
