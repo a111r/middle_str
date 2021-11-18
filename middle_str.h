@@ -11,12 +11,11 @@ string itc_slice_str(string str, int start, int end);
 long long itc_pow(int n, int i);
 int itc_stop(string str);
 string convertToBin(string str);
-bool itc_isLetter(unsigned char c);
 
 bool itc_isDigit(unsigned char c);
 unsigned char itc_toUpper(unsigned char c);
 unsigned char itc_changeCase(unsigned char c);
-bool itc_compare(string s1, string s2);
+bool itc_compare(string str1, string str2);
 int itc_countWords(string str);
 string itc_maxCharWord(string str);
 char itc_sameChar(string str);
