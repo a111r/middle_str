@@ -29,20 +29,15 @@ string itc_maxCharWord(string str)
 
 char itc_sameChar(string str)
 {
-    for (long long i = 0; str[i] != '\0'; i++)
-        {
-        if (( str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
-        {
-            for (long long j = 0; str[j] != '\0'; j++)
-            {
-                if ( str[j] == str[i])
-                {
-                    return str[j];
-                }
-            }
-        }
-    }
-    return '0';
+	int number;
+	number = itc_len(str);
+	for (int i = 0; i < number; i++)
+		if (str[i]!= ' ')
+			for (int j = 0; j < i; j++)
+				if (str[i] == str[j])
+                    return str[i];
+
+	return '\0';
 }
 
 bool itc_isFirstInSecond(string s1, string s2)
