@@ -10,6 +10,11 @@ long long itc_len(string str)
     return i;
 }
 
+bool itc_isLetter(unsigned char c)
+{
+    return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+}
+
 long long itc_pow(int n, int i)
 {
     if (i == 0)
