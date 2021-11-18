@@ -57,6 +57,8 @@ int itc_countWords(string str)
     long long i;
     bool bol = true;
     kol = 0, i = 0;
+    if(bol == false)
+        return kol;
     while(str[i] != '\0')
     {
         if ((str[i] < 65 || (str[i] > 90 && str[i] < 97) || str[i] > 122) && str[i] != 32)
@@ -73,8 +75,6 @@ int itc_countWords(string str)
         }
         i++;
     }
-    if(bol == false)
-        return kol;
     kol++;
     return kol;
 }
