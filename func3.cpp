@@ -1,67 +1,60 @@
 #include "middle_str.h"
 
-bool itc_isIp(string str)
+bool itc_isDigit(unsigned char c)
 {
-    int kol, number;
-    kol = 0, number = 1;
-    if (str == "")
-        return "error";
-    for (long long i = 0; str[i] != '\0'; i++)
+    if ( c >= '0' && c <= '9')
     {
-        if (str[i] >= '0' && str[i] <= '9')
-            number = 10 * number + str[i] - 48;
-        else
-        {
-            if (str[i] != 46)
-                return false;
-            if (number == 0)
-                return false;
-            if ((number % 1000) > 255 || (number % 1000) < 0)
-                return false;
-            kol++;
-            number = 1;
-        }
+        return true;
     }
-    if (number == 0)
-        return false;
-    if ((number % 1000) > 255 || (number % 1000) < 0)
-        return false;
-    kol++;
-    if (kol != 4)
-        return false;
+    return false;
+}
+
+unsigned char itc_toUpper(unsigned char c)
+{
+    if ( c >= 'a' && c <= 'z')
+    {
+        return c - ' ';
+    }
+    return c;
+}
+
+unsigned char itc_changeCase(unsigned char c)
+{
+    if ( c <= 'z' && c >= 'a')
+    {
+        return c - ' ';
+    }
+    else if(c <= 'Z' && c >= 'A')
+    {
+        return c + ' ';
+    }
+    else{
+        return c;
+    }
+}
+
+bool itc_compare(string s1, string s2)
+{
+    for (long long i = 0; i < itc_len(s1); i++)
+    {
+        if (s1[i] != s2[i])
+        {
+            return false;
+            break;
+        }
+
+    }
     return true;
 }
 
-string itc_DecToBin(string str)
+int itc_countWords(string str)
 {
-	string a, answer;
-	a = "", answer = "";
-	for (int i = 0; i < itc_len(str); i++){
-		if (itc_isDigit(str[i])) a += str[i];
-		else {
-			answer += convertToBin(a);
-			answer += str[i];
-			a = "";
-		}
-		if (i + 1 == itc_len(str)) {
-			answer += convertToBin(a);
-			a = "";
+	long long l = itc_len(str), kol = 1;
+	for (int i = 0; i < l; i++) {
+		if (str[i] == ' ') {
+			kol++;
 		}
 	}
-	return answer;
+	return kol;
 }
 
-string itc_decToBase(int num, int base)
-{
-    string left ="0123456789ABCDEF";
-    string result = "";
-    if ( num < 0){
-        result ="-";
-        num *= (-1);
-    }
-    while(num > 0){
-        result += left[num % base];
-        num = num / base;
-    }
-    return result;
-}
