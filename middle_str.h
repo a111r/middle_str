@@ -7,15 +7,14 @@
 using namespace std;
 
 long long itc_len(string str);
-string itc_slice_str(string str, int start, int end);
-long long itc_pow(int n, int i);
-int itc_stop(string str);
-string convertToBin(string str);
+long long itc_str_to_int(string str);
+long long itc_covert_num(long long num, int ss);
+string itc_int_to_str(long long num);
 
 bool itc_isDigit(unsigned char c);
 unsigned char itc_toUpper(unsigned char c);
 unsigned char itc_changeCase(unsigned char c);
-bool itc_compare(string str1, string str2);
+bool itc_compare(string s1, string s2);
 int itc_countWords(string str);
 string itc_maxCharWord(string str);
 char itc_sameChar(string str);
