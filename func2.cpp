@@ -2,28 +2,29 @@
 
 string itc_maxCharWord(string str)
 {
-	if (itc_countWords(str) < 2)
+    long long len ,count;
+    len = itc_len(str);
+    count = 0;
+    string a;
+    string result = "";
+    for(int i = 0; i < len + 1; i++)
+    {
+        if((str[i] == ' ' || str[i] == '\0') && (itc_len(a) > itc_len(result)))
+        {
+            result = a;
+            a = "";
+        }
+        if((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
+            a += str[i];
+        if(str[i] == ' ' && str[i + 1] != ' ')
+        {
+            a = "";
+            count++;
+        }
+    }
+    if(count == 0)
         return "error";
-	str = itc_rmFreeSpace(str);
-	string word = "";
-	string answer = "";
-	for (int i = 0, n = 0; str[i] != '\0'; i++)
-	{
-		if((str[i] != ' ' || str[i+1] == '\0') && !(str[i] == ',' || str[i] == '.' || str[i] == '!' || str[i] == '?'))
-            word += str[i], n++;
-		if ((str[i] == ' ' || str[i + 1] == '\0') && isValidWord(word))
-		{
-			if (itc_len(word) > itc_len(answer))
-			{
-			answer = word;
-			word = "";
-			n = 0;
-            }
-		}
-	}
-	if (answer == "")
-        answer = "error";
-	return answer;
+    return result;
 }
 
 char itc_sameChar(string str)
