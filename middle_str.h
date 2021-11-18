@@ -14,7 +14,7 @@ unsigned char itc_toUpper(unsigned char c);
 unsigned char itc_changeCase(unsigned char c);
 bool itc_compare(string s1, string s2);
 int itc_countWords(string str);
-int itc_countWords(string str);
+string itc_maxCharWord(string str);
 char itc_sameChar(string str);
 bool itc_isFirstInSecond(string s1, string s2);
 string itc_Cezar(string str, int k);
