@@ -53,29 +53,24 @@ bool itc_compare(string s1, string s2)
 
 int itc_countWords(string str)
 {
-    long long kol, length;
-    bool bol = true;
-    kol = 0;
     if (str == "")
         return 0;
-    for (long long i = 0; str[i] != '\0'; i++)
-    {
-        if ((65 <= str[i] && str[i] <= 90) || (97 <= str[i] && str[i] <= 122))
+	str += " ";
+	bool notSymbol = false;
+	int counter = 0;
+	int strLen = itc_len(str);
+	for (int i = 1; i < strLen; i++) 
         {
-            length ++;
-        }
-        else
-        {
-            if (str[i] == ' ')
-                bol = true;
-            if (length > 0)
-                kol++;
-            length = 0;
-        }
-    }
-    if (length > 0)
-        kol++;
-    if (!bol)
-        return 0;
-    return kol;
+		if (str[i] == ' ' && (str[i - 1] >= 'a' && str[i - 1] <= 'z' || str[i - 1] >= 'A' && str[i - 1] <= 'Z')) 
+		{
+			if (!notSymbol) counter += 1;
+                notSymbol = false;
+		}
+		else 
+		{
+			if (!(str[i] >= 'a' && str[i] <= 'z' || str[i] >= 'A' && str[i] <= 'Z'))
+			    notSymbol = true;
+		}
+	}
+	return counter
 }
