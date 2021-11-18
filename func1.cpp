@@ -1,38 +1,59 @@
 #include "middle_str.h"
 
-long long itc_len(string str)
+bool itc_isDigit(unsigned char c)
 {
-    long long res = 0;
-    int i = 0;
-    while (str[i] != '\0'){
-        i++;
+    if ( c >= '0' && c <= '9')
+    {
+        return true;
     }
-    return i;
+    return false;
 }
 
-long long itc_pow(int n, int i)
+unsigned char itc_toUpper(unsigned char c)
 {
-    if (i == 0)
-        return 1;
-    else
-        return n * itc_pow(n, i - 1);
-}
-
-int itc_stop(string str)
-{
-    int st = int(itc_len(str));
-    int answer = 0;
-    for (int i = 0; i < itc_len(str); i++) {
-        answer += (str[i] - 48) * itc_pow(10, st - 1);
-        st--;
+    if ( c >= 'a' && c <= 'z')
+    {
+        return c - ' ';
     }
-    return answer;
+    return c;
 }
 
-string convertToBin(string str)
+unsigned char itc_changeCase(unsigned char c)
 {
-    string answer = "";
-    for (int dec = itc_stop(str); dec > 0; dec /= 2)
-        answer = char(dec % 2 + '0') + answer;
-    return answer;
+    if ( c <= 'z' && c >= 'a')
+    {
+        return c - ' ';
+    }
+    else if(c <= 'Z' && c >= 'A')
+    {
+        return c + ' ';
+    }
+    else{
+        return c;
+    }
+}
+
+bool itc_compare(string s1, string s2)
+{
+    for (long long i = 0; i < itc_len(s1); i++)
+    {
+        if (s1[i] != s2[i])
+        {
+            return false;
+            break;
+        }
+
+    }
+    return true;
+}
+
+int itc_countWords(string str)
+{
+	long long l = itc_len(str), kol = 1;
+	for (int i = 0; i < l; i++) {
+		if (str[i] == ' ') {
+			kol++;
+		}
+	}
+	return kol;
 }
