@@ -7,8 +7,6 @@
 using namespace std;
 
 long long itc_len(string str);
-bool isLetter(char word);
-bool isValidWord(string str);
 string itc_slice_str(string str, int start, int end);
 
 bool itc_isDigit(unsigned char c);
