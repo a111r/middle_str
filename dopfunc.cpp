@@ -2,11 +2,9 @@
 
 long long itc_len(string str)
 {
-    long long res ;
-    int i;
-    res = 0, i = 0;
-    while (str[i] != '\0')
-    {
+    long long res = 0;
+    int i = 0;
+    while (str[i] != '\0'){
         i++;
     }
     return i;
@@ -36,3 +34,4 @@ string itc_slice_str(string str, int start, int end1)
 
     return "-1";
 }
+
