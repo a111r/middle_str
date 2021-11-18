@@ -50,3 +50,18 @@ string itc_DecToBin(string str)
 	}
 	return answer;
 }
+
+string itc_decToBase(int num, int base)
+{
+    string left ="0123456789ABCDEF";
+    string result = "";
+    if ( num < 0){
+        result ="-";
+        num *= (-1);
+    }
+    while(num > 0){
+        result += left[num % base];
+        num = num / base;
+    }
+    return result;
+}
