@@ -52,12 +52,21 @@ bool itc_compare(string s1, string s2)
 }
 
 int itc_countWords(string str)
-{
-	long long l = itc_len(str), kol = 1;
-	for (int i = 0; i < l; i++) {
-		if (str[i] == ' ') {
-			kol++;
-		}
-	}
-	return kol;
+{    int kol = 0;
+    long long i = 0;
+    bool bol = true;
+    while(str[i] != '\0'){
+        if ((str[i] < 65 || (str[i] > 90 && str[i] < 97) || str[i] > 122) && str[i] != 32){
+            bol = false;
+        }
+        if(str[i] == 32 && bol == true)
+            kol += 1;
+        if(str[i] == 32 && bol == false){
+            bol = true;}
+        i++;
+    }
+    if(bol == false)
+        return kol;
+    kol++;
+    return kol;
 }
