@@ -2,29 +2,7 @@
 
 string itc_maxCharWord(string str)
 {
-    long long len ,schet;
-    len = itc_len(str);
-    schet = 0;
-    string a;
-    string result = "";
-    for(int i = 0; i < len + 1; i++)
-    {
-        if((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
-            a += str[i];
-        if((str[i] == ' ' || str[i] == '\0') && (itc_len(a) > itc_len(result)))
-        {
-            result = a;
-            a = "";
-        }
-        if(str[i] == ' ' && str[i + 1] != ' ')
-        {
-            a = "";
-            schet++;
-        }
-    }
-    if(schet == 0)
-        return "error";
-    return result;
+    return 0;
 }
 
 char itc_sameChar(string str)
@@ -73,7 +51,7 @@ string itc_rmFreeSpace(string str)
 	int n;
 	n = 0;
 	for (int i = 0; str[i] != '\0'; i++)
-		if (!(str[i] == ' ' && str[i + 1] == ' ' || str[i] == ' ' && str[i + 1] == '\0' || n == 0 && str[i] == ' ')) 
+		if (!(str[i] == ' ' && str[i + 1] == ' ' || str[i] == ' ' && str[i + 1] == '\0' || n == 0 && str[i] == ' '))
 			str1 += str[i], n++;
 	return str1;
 }
