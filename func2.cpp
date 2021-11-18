@@ -2,27 +2,27 @@
 
 string itc_maxCharWord(string str)
 {
-    long long len ,count;
+    long long len ,schet;
     len = itc_len(str);
-    count = 0;
+    schet = 0;
     string a;
     string result = "";
     for(int i = 0; i < len + 1; i++)
     {
+        if((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
+            a += str[i];
         if((str[i] == ' ' || str[i] == '\0') && (itc_len(a) > itc_len(result)))
         {
             result = a;
             a = "";
         }
-        if((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
-            a += str[i];
         if(str[i] == ' ' && str[i + 1] != ' ')
         {
             a = "";
-            count++;
+            schet++;
         }
     }
-    if(count == 0)
+    if(schet == 0)
         return "error";
     return result;
 }
@@ -64,10 +64,10 @@ string itc_Cezar(string str, int k)
 	k = (k % 26 + 26) % 26;
 	for (int i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] = (str[i] - 'a' + k) % 26 + 'a';
-		else if (str[i] >= 'A' && str[i] <= 'Z')
+        if (str[i] >= 'A' && str[i] <= 'Z')
 			str[i] = (str[i] - 'A' + k) % 26 + 'A';
+        else if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] = (str[i] - 'a' + k) % 26 + 'a';
 	}
 	return str;
 }
