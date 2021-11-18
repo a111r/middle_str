@@ -11,6 +11,7 @@ string itc_slice_str(string str, int start, int end);
 long long itc_pow(int n, int i);
 int itc_stop(string str);
 string convertToBin(string str);
+bool itc_isLetter(unsigned char c);
 
 bool itc_isDigit(unsigned char c);
 unsigned char itc_toUpper(unsigned char c);
