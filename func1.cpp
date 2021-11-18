@@ -35,14 +35,18 @@ unsigned char itc_changeCase(unsigned char c)
 
 bool itc_compare(string s1, string s2)
 {
-    for (long long i = 0; i < itc_len(s1); i++)
+    long long len1, len2;
+    len1 = itc_len(str1);
+    len2 = itc_len(str2);
+    long long i, kol;
+    i = 0, kol = 0;
+    if (len1 != len2)
+        return false;
+    while (str1[i] <= '\0')
     {
-        if (s1[i] != s2[i])
-        {
+        if (str1[i] != str2[i])
             return false;
-            break;
-        }
-
+        i++;
     }
     return true;
 }
