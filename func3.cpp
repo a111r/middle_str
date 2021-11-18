@@ -6,6 +6,8 @@ bool itc_isIp(string str)
     kol = 0,number = 1;
     if (str == "")
         return "error";
+    if (kol != 4)
+        return false;
     for (long long i = 0; str[i] != '\0'; i++)
     {
         if (str[i] >= '0' && str[i] <= '9')
@@ -27,8 +29,6 @@ bool itc_isIp(string str)
     if ((number % 1000) > 255 || (number % 1000) < 0)
         return false;
     kol++;
-    if (kol != 4)
-        return false;
     return true;
 }
 
