@@ -6,7 +6,7 @@ bool itc_isIp(string str)
     int counter = 0;
     int lastDot = 0;
     string num;
-    int intNum, numLen, ip=0, symb;
+    int intNum, numLen, ip = 0, symb;
     while (str[i] != '\0')
         {
        if (str[i] == '.')
