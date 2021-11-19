@@ -51,26 +51,24 @@ bool itc_compare(string s1, string s2)
     return true;
 }
 
+
 int itc_countWords(string str)
 {
-    if (str == "")
+     long long len, kol;
+     len = itc_len(str);
+     if (str == "")
         return 0;
-	str += " ";
-	bool notSymbol = false;
-	int counter = 0;
-	int strLen = itc_len(str);
-	for (int i = 1; i < strLen; i++) 
-        {
-		if (str[i] == ' ' && (str[i - 1] >= 'a' && str[i - 1] <= 'z' || str[i - 1] >= 'A' && str[i - 1] <= 'Z')) 
-		{
-			if (!notSymbol) counter += 1;
-                notSymbol = false;
-		}
-		else 
-		{
-			if (!(str[i] >= 'a' && str[i] <= 'z' || str[i] >= 'A' && str[i] <= 'Z'))
-			    notSymbol = true;
-		}
+     else if (((str[0] >= 'A') && (str[0] <= 'Z')) || ((str[0] >= 'a') && (str[0] <= 'z')))
+         kol = 1;
+     else 
+	 kol = 0;
+     for (int i = 1; i < len; i++)
+	{
+	     if (i + 1 != len && !(((str[i] >= 'A') && (str[i] <= 'Z')) || ((str[i] >= 'a') && (str[i] <= 'z'))) && (str[i] != ' ')&& (((str[i - 1] >= 'A') && (str[i - 1] <= 'Z')) || ((str[i - 1] >= 'a') && (str[i - 1] <= 'z')))&& (((str[i + 1] >= 'A') && (str[i + 1] <= 'Z')) || ((str[i + 1] >= 'a') && (str[i + 1] <= 'z'))))
+			kol -= 2;
+	     else if (!(((str[i - 1] >= 'A') && (str[i - 1] <= 'Z')) || ((str[i - 1] >= 'a') && (str[i - 1] <= 'z'))) && (((str[i] >= 'A') && (str[i] <= 'Z')) || ((str[i] >= 'a') && (str[i] <= 'z'))))
+			kol++;
+
 	}
-	return counter;
+	return kol;
 }
