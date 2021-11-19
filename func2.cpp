@@ -75,3 +75,4 @@ string itc_rmFreeSpace(string str)
 			str1 += str[i], n++;
 	return str1;
 }
+
