@@ -2,52 +2,54 @@
 
 string itc_maxCharWord(string str)
 {
-
-	if (itc_countWords(str) <= 1)
+    int strLen, counter;
+    strLen = itc_len(str);
+    counter = 0;
+    string newWord = "";
+    string res = "";
+    for(int i = 0; i < strLen + 1; i++){
+        if((str[i] == ' ' or str[i] == '\0') && (itc_len(newWord) > itc_len(res))){
+            res = newWord;
+            newWord = "";
+        }
+        if((str[i] >= 'A' and str[i] <= 'Z') || (str[i] >= 'a' and str[i] <= 'z')){
+            newWord += str[i];
+        }
+        if(str[i] == ' ' && str[i + 1] != ' '){
+            newWord = "";
+            counter += 1;
+        }
+    }
+    if(counter == 0){
         return "error";
-	long long max, len;
-	max = 0;
-	len = itc_len(str);
-	string temp, otv;
-	for (int i = 0; i < len; i++) {
-		if (((str[i] >= 'A') && (str[i] <= 'Z')) || ((str[i] >= 'a') && (str[i] <= 'z')))
-		    temp += str[i];
-		else if (itc_len(temp) > max)
-            {
-                max = itc_len(temp); otv = temp; temp = "";
-            }
-		else
-            temp = "";
-	}
-	if (itc_len(temp) > max)
-        otv = temp;
-	return otv;
+    }
+    return res;
 }
 
-char itc_sameChar(string str)
-{
-    long long len;
-    len = itc_len(str);
-    int count;
-    count = 0;
-    char result;
-    for(int i = 0; i < len; i++){
-        for(int j = i; j < len; j++)
+char itc_sameChar(string str){
+    int counter, i ;
+    counter = 0, i = 0;
+
+    while(str[i] != '\0')
+    {
+        int j = 0;
+        while (str[j] != '\0')
         {
             if(str[i] == str[j])
-                {
-                count++;
-            }
-        }
-        if(count == 2)
             {
+                counter += 1;
+            }
+            j += 1;
+        }
+        if(counter == 2)
+        {
             return str[i];
         }
-        count = 0;
+        counter = 0;
+        i += 1;
     }
-    return 0;
+    return -1;
 }
-
 bool itc_isFirstInSecond(string s1, string s2)
 {
     if(s1 == "" or s2 == "")
