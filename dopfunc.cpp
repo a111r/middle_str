@@ -1,7 +1,7 @@
 #include "middle_str.h"
 
 long long itc_len(string str)
-{
+{;
     int i = 0;
     while (str[i] != '\0'){
         i++;
@@ -33,4 +33,27 @@ string itc_slice_str(string str, int start, int end1)
 
     return "-1";
 }
+
+long long itc_abs(long long num)
+{
+    if (num >= 0)
+        return num;
+    return -num;
+}
+
+double itc_pow(long long num, long long n)
+{
+    if (n == 0)
+        return 1;
+    long long res;
+    res = num;
+    for (int i = 1; i < itc_abs(n); i++)
+    {
+        res *= num;
+    }
+    if (n >= 0)
+        return res;
+    return 1.0 / res;
+}
+
 
