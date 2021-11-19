@@ -9,6 +9,7 @@ using namespace std;
 long long itc_len(string str);
 string itc_slice_str(string str, int start, int end1);
 long long itc_abs(long long num);
+double itc_pow(long long num, long long n);
 
 
 bool itc_isDigit(unsigned char c);
