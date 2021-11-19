@@ -62,4 +62,3 @@ int itc_countWords(string str)
 	}
 	return kol;
 }
-
