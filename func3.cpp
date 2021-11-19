@@ -1,43 +1,48 @@
 #include "middle_str.h"
 
-bool itc_isIp(string str)
+bool itc_isIp(string str) 
 {
-    int kol, number;
-    kol = 0,number = 1;
-    if (str == "")
-        return "error";
-    if (kol != 4)
-        return false;
-    for (long long i = 0; str[i] != '\0'; i++)
-    {
-        if (str[i] >= '0' && str[i] <= '9')
-            number = 10 * number + str[i] - 48;
-        else
+    int i = 0;
+    int counter = 0;
+    int lastDot = 0;
+    string num;
+    int intNum, numLen, ip=0, symb;
+    while (str[i] != '\0')
         {
-            if (str[i] != 46)
+       if (str[i] == '.')
+       {
+            num = itc_slice_str(str, lastDot, i - 1);
+            lastDot = i + 1;
+            counter += 1;
+            numLen = itc_len(num);
+            for (int i = 0; i < numLen; i++)
+            {
+                if (!itc_isDigit(num[i])) 
+                     return false;
+                symb = num[i] - 48;
+                ip += symb * itc_pow(10, numLen - i - 1);
+            }
+            if (ip < 0 || ip > 255) 
                 return false;
-            if (number == 0)
-                return false;
-            if ((number % 1000) > 255 || (number % 1000) < 0)
-                return false;
-            kol++;
-            number = 1;
-        }
+            ip = 0;
+       }
+       i += 1;
     }
-    if (number == 0)
+    num = itc_slice_str(str, lastDot, i - 1);
+            lastDot = i + 1;
+            counter += 1;
+            numLen = itc_len(num);
+            for (int i = 0; i < numLen; i++)
+            {
+                if (!itc_isDigit(num[i])) 
+                return false;
+                symb = num[i] - 48;
+                ip += symb * itc_pow(10, numLen - i - 1);
+            }
+            if (ip < 0 || ip > 255) 
+                return false;
+    if (counter != 4) 
         return false;
-    if ((number % 1000) > 255 || (number % 1000) < 0)
-        return false;
-    kol++;
     return true;
 }
 
-string itc_DecToBin(string str)
-{
-    return 0;
-}
-
-string itc_decToBase(int num, int base)
-{
-    return 0;
-}
