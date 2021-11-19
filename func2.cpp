@@ -3,7 +3,7 @@
 string itc_maxCharWord(string str)
 {
 
-	if (itc_countWords(str) <= 1) 
+	if (itc_countWords(str) <= 1)
         return "error";
 	long long max, len;
 	max = 0;
@@ -14,12 +14,12 @@ string itc_maxCharWord(string str)
 		    temp += str[i];
 		else if (itc_len(temp) > max)
             {
-                max = itc_len(temp); otv = temp; temp = ""; 
-            } 
-		else 
+                max = itc_len(temp); otv = temp; temp = "";
+            }
+		else
             temp = "";
 	}
-	if (itc_len(temp) > max) 
+	if (itc_len(temp) > max)
         otv = temp;
 	return otv;
 }
