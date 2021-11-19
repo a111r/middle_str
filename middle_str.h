@@ -7,7 +7,8 @@
 using namespace std;
 
 long long itc_len(string str);
-string itc_slice_str(string str, int start, int end);
+string itc_slice_str(string str, int start, int end1);
+long long itc_abs(long long num);
 
 
 bool itc_isDigit(unsigned char c);
