@@ -2,36 +2,35 @@
 
 long long itc_len(string str)
 {
-    int i = 0;
-    while (str[i] != '\0'){
-        i++;
+    long long len = 0;
+    for(int i = 0; str[i] != '\0'; i++){
+        len++;
     }
-    return i;
+    return len;
 }
 
-string itc_slice_str(string str, int start, int end1)
+
+string itc_slice_str(string str, int start, int end)
 {
+    long long len = itc_len(str);
     string result;
-    result = "";
-    if (end1 >= itc_len(str))
-        end1 = itc_len(str) - 1;
-    if(start > end1)
-        return str;
-    else if(start == (itc_len(str) - 1))
+    if((end > len) and (start < len))
     {
-        result += str[itc_len(str) - 1];
+        for(int i = start; i < len; i++)
+            {
+            result = result + str[i];
+        }
         return result;
     }
-    else
-    {
-        for (long long i = start; i <= end1; i++)
+    if(start > end)
         {
-        result += str[i];
+        return str;
         }
-    return result;
+    for(int i = start; i <= end; i++)
+    {
+        result = result + str[i];
     }
-
-    return "-1";
+    return result;
 }
 
 long long itc_abs(long long num)
