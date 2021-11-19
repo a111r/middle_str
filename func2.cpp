@@ -26,7 +26,8 @@ string itc_maxCharWord(string str)
     return res;
 }
 
-char itc_sameChar(string str){
+char itc_sameChar(string str)
+{
     int counter, i ;
     counter = 0, i = 0;
 
@@ -50,6 +51,7 @@ char itc_sameChar(string str){
     }
     return -1;
 }
+
 bool itc_isFirstInSecond(string s1, string s2)
 {
     if(s1 == "" or s2 == "")
@@ -62,7 +64,6 @@ bool itc_isFirstInSecond(string s1, string s2)
     }
     return false;
 }
-
 
 string itc_Cezar(string str, int k)
 {
