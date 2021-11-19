@@ -7,7 +7,7 @@
 using namespace std;
 
 long long itc_len(string str);
-string itc_slice_str(string str, int start, int end1);
+string itc_slice_str(string str, int start, int end);
 long long itc_abs(long long num);
 double itc_pow(long long num, long long n);
 
@@ -23,5 +23,7 @@ bool itc_isFirstInSecond(string s1, string s2);
 string itc_Cezar(string str, int k);
 string itc_rmFreeSpace(string str);
 bool itc_isIp(string str);
+string itc_DecToBin(string str);
+string itc_decToBase(int num, int base);
 
 #endif // MIDDLE_STR_H_INCLUDED
