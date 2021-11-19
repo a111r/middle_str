@@ -1,7 +1,7 @@
 #include "middle_str.h"
 
 long long itc_len(string str)
-{;
+{
     int i = 0;
     while (str[i] != '\0'){
         i++;
@@ -55,6 +55,3 @@ double itc_pow(long long num, long long n)
         return res;
     return 1.0 / res;
 }
-
-
-
