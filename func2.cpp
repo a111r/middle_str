@@ -76,6 +76,7 @@ bool itc_isFirstInSecond(string str2, string str1) {
         }
     }
     return false;
+}
 
 string itc_Cezar(string str, int k)
 	
