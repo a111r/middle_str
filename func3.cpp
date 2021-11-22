@@ -46,12 +46,4 @@ bool itc_isIp(string str)
     return true;
 }
 
-string itc_DecToBin(string str)
-{
-    return '0';
-}
 
-string itc_decToBase(int num, int base)
-{
-    return '0';
-}
