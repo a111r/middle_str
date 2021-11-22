@@ -24,4 +24,5 @@ string itc_Cezar(string str, int k);
 string itc_rmFreeSpace(string str);
 bool itc_isIp(string str);
 
+
 #endif // MIDDLE_STR_H_INCLUDED
