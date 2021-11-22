@@ -58,15 +58,17 @@ char itc_sameChar(string str)
 
 bool itc_isFirstInSecond(string s1, string s2)
 {
-    if (s1 == "")
-	    return true;
-    if (s2 == "") 
-	    return false;
-    for (int i = 0; i < itc_len(s2); i++)
-    {
-        cout << itc_slice_str(s2, i, i + itc_len(s1) - 1) << endl;
-        if (itc_slice_str(s2, i, i + itc_len(s1) - 1) == s1)
-		return true;
+    int len1 = itc_len(s1), len2 = itc_len(s2);
+    if(s1 == ""){
+        return true;
+    }
+    for(int i = 0; i < len2; i++){
+        if(len2 - i < len1){
+            return false;
+        }
+        if(itc_slice_str(s2, i, i + (len1 - 1)) == s1){
+            return true;
+        }
     }
     return false;
 }
