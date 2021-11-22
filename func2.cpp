@@ -56,13 +56,12 @@ char itc_sameChar(string str)
     return -1;
 }
 
-bool itc_isFirstInSecond(string s1, string s2)
+bool itc_isFirstInSecond(string s1, string s2) 
 {
-	if (s1 == "") 
-		return true;
-	if (s2 == "") 
-		return false;
-	return (itc_find_str(s2, s1) != -1);
+    long long checker = itc_find_middle_str(s1, s2);
+    if (checker == -1)
+        return false;
+return true;
 }
 
 string itc_Cezar(string str, int k)
