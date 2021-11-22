@@ -58,22 +58,15 @@ char itc_sameChar(string str)
 
 bool itc_isFirstInSecond(string s1, string s2)
 {
-    int len1 = itc_len(s1), len2 = itc_len(s2);
-    if(s1 == ""){
-        return true;
-    }
-    for(int i = 0; i < len2; i++){
-        if(len2 - i < len1){
-            return false;
-        }
-        if(itc_slice_str(s2, i, i + (len1 - 1)) == s1){
-            return true;
-        }
-    }
-    return false;
+	if (s1 == "") 
+		return true;
+	if (s2 == "") 
+		return false;
+	return (itc_find_str(s2, s1) != -1);
 }
 
 string itc_Cezar(string str, int k)
+	
 {
 	k = (k % 26 + 26) % 26;
 	for (int i = 0; str[i] != '\0'; i++)
