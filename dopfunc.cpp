@@ -14,7 +14,7 @@ string itc_slice_str(string str, int start, int end)
 {
     long long len = itc_len(str);
     string result;
-    if((end > len) and (start < len))
+    if((end > len) && (start < len))
     {
         for(int i = start; i < len; i++)
             {
