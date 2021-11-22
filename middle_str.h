@@ -10,6 +10,7 @@ long long itc_len(string str);
 string itc_slice_str(string str, int start, int end);
 long long itc_abs(long long num);
 double itc_pow(long long num, long long n);
+int itc_find_str(string str1, string str2);
 
 bool itc_isDigit(unsigned char c);
 unsigned char itc_toUpper(unsigned char c);
