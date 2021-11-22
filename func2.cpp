@@ -8,19 +8,23 @@ string itc_maxCharWord(string str)
     string newWord = "";
     string res = "";
     for(int i = 0; i < strLen + 1; i++){
-        if((str[i] == ' ' or str[i] == '\0') && (itc_len(newWord) > itc_len(res))){
+        if((str[i] == ' ' or str[i] == '\0') && (itc_len(newWord) > itc_len(res)))
+        {
             res = newWord;
             newWord = "";
         }
-        if((str[i] >= 'A' and str[i] <= 'Z') || (str[i] >= 'a' and str[i] <= 'z')){
+        if((str[i] >= 'A' and str[i] <= 'Z') || (str[i] >= 'a' and str[i] <= 'z'))
+        {
             newWord += str[i];
         }
-        if(str[i] == ' ' && str[i + 1] != ' '){
+        if(str[i] == ' ' && str[i + 1] != ' ')
+        {
             newWord = "";
             counter += 1;
         }
     }
-    if(counter == 0){
+    if(counter == 0)
+    {
         return "error";
     }
     return res;
@@ -87,4 +91,50 @@ string itc_rmFreeSpace(string str)
 		if (!(str[i] == ' ' && str[i + 1] == ' ' || str[i] == ' ' && str[i + 1] == '\0' || n == 0 && str[i] == ' '))
 			str1 += str[i], n++;
 	return str1;
+}
+
+bool itc_isIp(string str)
+{
+    int i = 0;
+    int counter = 0;
+    int lastDot = 0;
+    string num;
+    int intNum, numLen, ip = 0, symb;
+    while (str[i] != '\0')
+        {
+       if (str[i] == '.')
+       {
+            num = itc_slice_str(str, lastDot, i - 1);
+            lastDot = i + 1;
+            counter += 1;
+            numLen = itc_len(num);
+            for (int i = 0; i < numLen; i++)
+            {
+                if (!itc_isDigit(num[i]))
+                     return false;
+                symb = num[i] - 48;
+                ip += symb * itc_pow(10, numLen - i - 1);
+            }
+            if (ip < 0 || ip > 255)
+                return false;
+            ip = 0;
+       }
+       i += 1;
+    }
+    num = itc_slice_str(str, lastDot, i - 1);
+            lastDot = i + 1;
+            counter += 1;
+            numLen = itc_len(num);
+            for (int i = 0; i < numLen; i++)
+            {
+                if (!itc_isDigit(num[i]))
+                return false;
+                symb = num[i] - 48;
+                ip += symb * itc_pow(10, numLen - i - 1);
+            }
+            if (ip < 0 || ip > 255)
+                return false;
+    if (counter != 4)
+        return false;
+    return true;
 }
