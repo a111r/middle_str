@@ -56,27 +56,32 @@ char itc_sameChar(string str)
     return -1;
 }
 
-bool itc_isFirstInSecond(string str2, string str1) { 
-    bool isCorrect = true;
-    int numTest;
-    for (int n1 = 0; n1 < itc_len(str1); n1++) {
-        if (n1 > itc_len(str2))
-            return false;
-        else if (str1[n1] == str2[0]) {
-            isCorrect = true;
-            numTest = n1;
-            for (int n2 = 0; n2 < itc_len(str2); n2++) {
-                numTest += n2;
-                cout << str1[numTest] << endl << str2[n2] << endl;
-                if (str1[numTest] != str2[n2])
-                    isCorrect = false;
-            }
-            if (isCorrect == true)
-                return true;
-        }
-    }
-    return false;
+bool itc_isFirstInSecond(string s1, string s2)
+{
+	string num = s1;
+	s1 = num;
+	s1 = s2;
+	s2 = num;
+	int dlina = itc_len(s1);
+	int dlina1 = itc_len(s2);
+	dlina = itc_len(s1);
+	dlina1 = itc_len(s2);
+	if (dlina < dlina1)
+		return false;
+	for (int i = 0; i < dlina - dlina1 + 1; i++){
+		bool proverka = false;
+		if (s1[i] == s2[0]) {
+			proverka = true;
+			for (int j = 1; j < dlina1; j++)
+				if (s1[i + j] != s2[j])
+					proverka = false;
+		}
+		if (proverka)
+			return true;
+	}
+	return false;
 }
+
 
 string itc_Cezar(string str, int k)
 	
